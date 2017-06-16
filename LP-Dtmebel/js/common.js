@@ -1,5 +1,31 @@
 $(function() {
 
+		//E-mail Ajax Send
+	$("form").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			th.find(".success").addClass("visible");
+			setTimeout(function() {
+				// Done Functions
+				th.find(".success").removeClass("visible");
+				th.trigger("reset");
+				$.magnificPopup.close();
+			}, 3000);
+		});
+		return false;
+	});
+
+	$("a[href='#callback']").click(function() {
+		var dataForm = $(this).data("form");
+		var dataText = $(this).data("text");
+		$(".form-callback h4").text(dataText);
+		$(".form-callback [name=admin-data]").val(dataForm);
+	});
+
 	$(function() {
 		var pull 		= $('#pull');
 		menu 		= $('nav ul');
@@ -20,7 +46,6 @@ $(function() {
 
 	function heightses() {
 		$(".catalog-item .catalog-content h4").height('auto').equalHeights();
-		$(".catalog-item .catalog-content p").height('auto').equalHeights();
 	}
 
 	$(window).resize(function() {
@@ -47,7 +72,7 @@ $(function() {
 
 	});
 
-	$(".image-popup-tizer").magnificPopup({
+	$(".image-popup-tizer, a[href='#callback']").magnificPopup({
 		mainClass: 'my-mfp-zoom-in',
 		removalDelay: 300,
 		type: 'inline',
