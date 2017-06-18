@@ -89,6 +89,19 @@ $(function() {
 		offset: 85
 	});
 
+	$("a[href='#callback']").magnificPopup({
+		mainClass: 'my-mfp-zoom-in',
+		removalDelay: 300,
+		type: 'inline',
+	});	
+
+	$("a[href='#callback']").click(function() {
+		var dataForm = $(this).data("form");
+		var dataText = $(this).data("text");
+		$(".form-callback h4").text(dataText);
+		$(".form-callback [name=admin-data]").val(dataForm);
+	});
+
 	$(".popup-gallery").each(function() {
 		$(this).magnificPopup({
 			delegate: 'a',
