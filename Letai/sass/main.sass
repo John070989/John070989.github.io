@@ -37,7 +37,7 @@ body
 
 .top_nav
 	position: fixed
-	width: 880px
+	width: auto
 	z-index: 10
 	left: 31%
 	.inner
@@ -71,10 +71,7 @@ a:hover
 	cursor: pointer
 
 header
-
 	position: relative
-	box-shadow: 0 4px 10px -5px rgba(40, 40, 40, 0.3)
-	border-bottom: 1px solid #dedede
 	margin-bottom: 5px
 	z-index: 2
 	.logo, nav ul
@@ -94,6 +91,7 @@ header nav
 	display: block
 	ul
 		margin-top: 34px
+		padding-left: 0
 		float: right
 		.icon
 			width: 40px
@@ -104,7 +102,7 @@ header nav
 			font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif
 			list-style: none
 			float: left
-			padding: 0 52px
+			padding: 0 34px
 			font-size: 18px
 			text-align: center
 			position: relative
@@ -125,13 +123,13 @@ header nav
 				color: #333
 				padding: 6px 0
 				&:focus
-					font-size: 16px
 					text-align: center
 					display: block
 					line-height: 30px
 					text-decoration: none
 					color: #333
 					padding: 6px 0
+					outline: none
 					> i.fa
 						display: block !important
 						font-size: 24px
@@ -201,6 +199,58 @@ header nav
 				&.icon-location-outline:before
 					content: '\e814'
 
+.menu
+	height: 124px
+	box-shadow: 0 6px 10px -12px #333,0 -6px 10px -12px #333
+
+.info-tel-wrap
+	margin-top: 10px
+	.info-tel-block1
+		display: table-row
+		.info-tel-img
+			display: table-cell
+			vertical-align: middle
+			width: 40px
+			height: 40px
+			margin: 0 auto
+		.info-tel-wrap-title
+			display: table-cell
+			padding-left: 5px
+			.blue_font
+				font-size: 16px
+				padding: 5px 0
+				a
+					color: #e84735
+					&:hover
+						text-decoration: none
+			p
+				text-transform: uppercase
+				font-size: 16px
+				margin-bottom: 2px
+	.info-tel-block2
+		display: table-row
+		.info-tel-img
+			display: table-cell
+			vertical-align: middle
+			width: 40px
+			height: 40px
+			margin: 0 auto
+		.info-tel-wrap-title
+			display: table-cell
+			padding-left: 5px
+			.blue_font
+				font-size: 16px
+				padding: 5px
+				background-color: #e84735
+				text-align: center
+				a
+					color: #fff
+					&:hover
+						text-decoration: none
+			p
+				text-transform: uppercase
+				font-size: 16px
+				margin-bottom: 2px
 .new_tel_blocks
 	margin: 60px auto 30px
 	> div
@@ -237,25 +287,26 @@ header nav
 .consultant
 	padding: 20px
 	margin-bottom: 30px
-
+.summa
+	font-size: 20px
+	font-weight: bold
+	margin-top: 15px
+	strong
+		font-size: 44px
+		font-weight: bold
+		color: #e81d1d
 .tarif
 	padding: 20px
 	margin-bottom: 30px
 	position: relative
 	h2
 		text-align: center
-		font-size: 22px
+		font-size: 24px
 	.tarif_img
 		p
 			text-align: center
-		.summa
-			font-size: 20px
-			font-weight: bold
-			margin-top: 15px
-			strong
-				font-size: 44px
-				font-weight: bold
-				color: #e81d1d
+
+
 	.akciya_parametr
 		margin: 15px 0
 		.block
@@ -269,6 +320,7 @@ header nav
 		color: red
 		p
 			line-height: 18px
+			font-size: 13px
 	.akciya
 		background: #e81d1d
 		border-radius: 2px
@@ -277,9 +329,9 @@ header nav
 		font-weight: 600
 		padding: 5px 10px
 		position: absolute
-		right: -6px
+		right: 0
 		text-transform: uppercase
-		top: 38px
+		top: 0
 	> div
 		vertical-align: middle
 		display: flex
@@ -290,9 +342,7 @@ header nav
 		p
 			margin-bottom: 0
 			line-height: 36px
-			font-size: 14px
-			strong
-				font-size: 16px
+
 			i
 				font-size: 22px
 				margin-right: 4px
@@ -471,45 +521,7 @@ button
 	color: #e81d1d
 	margin-top: 20px
 
-.blocks
-	> div > div > div
-		&:nth-child(1)
-			padding-left: 0
-			padding-right: 24px
-		&:nth-child(2)
-			padding-left: 12px
-			padding-right: 12px
-		&:nth-child(3)
-			padding-right: 0
-			padding-left: 24px
-	a
-		margin-bottom: 30px
-		border: 3px solid transparent
-		display: block
-		color: #333
-		text-decoration: none
-		transition: .3s
-		&:focus
-			margin-bottom: 30px
-			border: 3px solid transparent
-			display: block
-			color: #333
-			text-decoration: none
-			transition: .3s
-			&:hover
-				color: #333
-				text-decoration: none !important
-				border: 3px solid #278dc1
-				box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.25)
-				border-radius: 4px
-				transition: .3s
-		&:hover
-			color: #333
-			text-decoration: none !important
-			border: 3px solid #278dc1
-			box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.25)
-			border-radius: 4px
-			transition: .3s
+
 
 .info_block
 	.head_block
@@ -603,7 +615,7 @@ section.packages
 					margin-top: 6px
 					margin-bottom: 30px
 				.title
-					font-size: 23px
+					font-size: 21px
 					font-weight: bolder
 					margin-bottom: 24px
 			strong
@@ -921,6 +933,7 @@ footer
 		left: 20%
 	.button-up
 		left: 5%
+		bottom: 2%
 
 @media (max-width: 1280px)
 	.top_nav
@@ -984,8 +997,7 @@ footer
 @media (max-width: 1140px)
 	.top_nav
 		left: 10%
-	.button-up
-		display: none !important
+	
 
 @media (max-width: 1024px)
 	.button-up
@@ -1013,6 +1025,45 @@ footer
 				text-align: center
 
 @media (max-width: 991px)
+	aside
+		margin: 0 15px
+	.tarif 
+
+		.akciya_prim
+			text-align: left
+			margin: 0 0 15px 0
+			p
+				font-size: 13px
+		.akciya_parametr
+			text-align: left
+		> div
+			p
+
+				i
+					font-size: 16px
+	.summa
+		float: right
+		margin: 0 0 0 10px
+		font-size: 16px
+		strong
+			font-size: 40px
+	header
+		.logo
+			margin: 0 10px
+			width: 120px
+		.inform
+			float: right
+			margin: 0 10px
+			width: 150px
+			p
+				&.title
+					font-size: 17px
+				&.blue_back
+					font-size: 16px
+				&.blue_font
+					font-size: 13px					
+				&.grey
+					font-size: 9px
 	.package
 		padding: 20px
 		border: 1px solid #ccc
@@ -1113,9 +1164,9 @@ footer
 				&.blue_font
 					line-height: 1.3
 					text-transform: uppercase
-					color: #278dc1
+					color: #e84735
 					font-weight: 500
-					font-size: 14px
+					font-size: 16px
 				&.grey
 					color: #8698a5
 					font-weight: 500
@@ -1127,27 +1178,23 @@ footer
 		text-align: center
 	.top_nav
 		display: none
-	header
-		.logo
-			width: 25%
-			margin-top: -24px
-		nav ul
-			display: none
-			position: absolute
-			right: 0
-			top: 126px
-			width: 100%
-			padding-left: 0
-			background: #fff
-			border-top: 3px solid #e81d1d
-			li
-				padding: 10px 30px
-				width: 25%
-				a
-					&::after, &:focus::after
-						bottom: 0
+
 
 @media (max-width: 767px)
+	header
+		nav
+			ul
+				margin-top: 0
+				li
+					padding: 5px
+					a
+						font-size: 14px
+		.menu
+			height: 100px
+			.logo
+				margin: 0 10px
+				width: 120px
+
 	.package
 		padding: 20px
 		border: 1px solid #ccc
@@ -1228,34 +1275,7 @@ footer
 			padding: 10px 8px
 			p
 				font-size: 12px
-	.blocks > div > div > div
-		&:nth-child(1)
-			padding-left: 0
-			padding-right: 15px
-		&:nth-child(2)
-			padding-left: 15px
-			padding-right: 0
-		&:nth-child(3)
-			padding-right: 15px
-			padding-left: 0
-	.new_tel_blocks
-		margin-bottom: 0
-		> div
-			padding-left: 2%
-			padding-right: 0
-			&:last-child
-				padding-left: 0
-				padding-right: 0
-			&:first-child
-				padding-left: 0
-		.icon_block
-			width: 50px
-			.icon
-				width: 40px
-				height: 40px
-				position: relative
-				display: inline-block
-				vertical-align: top
+	
 		.inform
 			width: 182px
 			margin-bottom: 40px
@@ -1267,7 +1287,7 @@ footer
 					font-weight: 400
 					margin-bottom: 2px
 				&.blue_back
-					background: #278dc1
+					background: #e84735
 					color: #fff
 					padding: 0 9px
 					font-size: 20px
@@ -1279,9 +1299,9 @@ footer
 				&.blue_font
 					line-height: 1.3
 					text-transform: uppercase
-					color: #278dc1
+					color: #e84735
 					font-weight: 500
-					font-size: 14px
+					font-size: 16px
 				&.grey
 					color: #8698a5
 					font-weight: 500
@@ -1321,15 +1341,41 @@ footer
 		margin: 10px 0 30px
 	header
 		nav ul li
-			width: 50%
-		.logo
-			width: 30%
-			margin-top: -17px
 		.cmn-toggle-switch
 			top: 0
 
 @media (max-width: 575px)
-	.info_block .head_block
+	.row
+		.mobi-h2 
+			h2
+				font-size: 24px
+				text-align: center
+				margin-top: 20px
+				margin-bottom: 20px	
+		.special
+			h3
+				font-size: 16px
+			p
+				font-size: 12px
+		.options-mobi 
+			ul 
+				li
+					float: none
+					padding: 6px 0
+		.special-mobi
+			padding: 4px 2px
+			p
+				font-size: 10px
+		.procent
+			font-size: 24px
+			bottom: 50%
+			&:after
+				border-right: 15px solid #fff
+				border-bottom: 15px solid transparent
+		.btn-m
+			button
+				font-size: 14px
+		.info_block .head_block
 		font-size: 20px
 		.block_name
 			font-size: 20px
@@ -1346,10 +1392,7 @@ footer
 			padding: 10px 20px
 			p
 				font-size: 14px
-	.blocks > div > div > div
-		&:nth-child(1), &:nth-child(2), &:nth-child(3)
-			padding-right: 15px
-			padding-left: 15px
+	
 	.new_tel_blocks
 		> div
 			padding-left: 22%
@@ -1377,7 +1420,7 @@ footer
 					font-weight: 400
 					margin-bottom: 2px
 				&.blue_back
-					background: #278dc1
+					background: #e84735
 					color: #fff
 					padding: 0 15px
 					font-size: 22px
@@ -1389,9 +1432,9 @@ footer
 				&.blue_font
 					line-height: 1.3
 					text-transform: uppercase
-					color: #278dc1
+					color: #e84735
 					font-weight: 500
-					font-size: 14px
+					font-size: 16px
 				&.grey
 					color: #8698a5
 					font-weight: 500
@@ -1424,10 +1467,6 @@ footer
 		margin-left: 0 !important
 		margin-right: 0 !important
 	header
-		.logo
-			margin-left: 3%
-			width: 162px
-			margin-top: -17px
 		.cmn-toggle-switch
 			top: 0
 			right: 2%
@@ -1446,6 +1485,22 @@ footer
 		margin-right: 0
 
 @media (max-width: 500px)
+	.info-tel-wrap 
+		.info-tel-block1, .info-tel-block2 
+			.info-tel-img
+				width: 24px
+				height: 24px
+			.info-tel-wrap-title 
+				p
+					font-size: 13px
+				.blue_font
+					font-size: 16px
+	.modal_body
+		ol
+			list-style-type: none
+			padding: 0
+			li
+				font-size: 10px
 	.package
 		padding: 20px
 		border: 1px solid #ccc
@@ -1499,26 +1554,17 @@ footer
 				padding: 10px !important
 
 @media (max-width: 400px)
-	aside
-		margin: 0 15px
-	.tarif 
-		.akciya
-			top: -14px
-			right: 0
-		.akciya_prim
-			text-align: left
-			margin: 0 0 15px 0
-			p
-				font-size: 13px
-		.akciya_parametr
-			text-align: left
-		> div
-			p
-				strong
+	.info-tel-wrap 
+		.info-tel-block1, .info-tel-block2 
+			.info-tel-img
+				width: 24px
+				height: 24px
+			.info-tel-wrap-title 
+				p
 					font-size: 13px
-				i
-					font-size: 16px
-
+				.blue_font
+					font-size: 13px
+	
 	.new_tel_blocks > div
 		padding-left: 10%
 		&:last-child, &:first-child
@@ -1530,10 +1576,6 @@ footer
 			input, label, select
 				width: 100%
 	header
-		.logo
-			margin-left: 3%
-			width: 140px
-			margin-top: -12px
 		.cmn-toggle-switch
 			top: 0
 			right: 2%
@@ -1549,11 +1591,50 @@ footer
 					bottom: -21px
 
 @media (max-width: 360px)
+	.green-button_shadow
+		float: left
+	.menu
+		height: 100px
+	.info-tel-wrap 
+		.info-tel-block1, .info-tel-block2 
+			.info-tel-img
+				width: 24px
+				height: 24px
+			.info-tel-wrap-title 
+				p
+					font-size: 12px
+				.blue_font
+					font-size: 12px
+	section.republic
+		margin: 5px 0
+	header
+		.logo
+			margin: 0 10px
+			width: 110px
+		.inform
+			float: right
+			margin: 0 10px
+			width: 150px
+			p
+				&.title
+					font-size: 17px
+				&.blue_back
+					font-size: 16px
+				&.blue_font
+					font-size: 13px					
+				&.grey
+					font-size: 9px
+		nav
+			margin: 10px 0
  
 	header nav ul
-		border-bottom: 3px solid #e81d1d
-		border-top: 3px solid transparent
-	.package .image img, header nav ul li
+		padding: 0
+		margin-top: 0
+		li
+			padding: 5px
+			a
+				font-size: 12px
+	.package .image img
 		width: 100%
 	.package
 		padding: 20px
@@ -1631,10 +1712,9 @@ footer
 					font-size: 23px
 					font-weight: 600
 					white-space: nowrap
-					margin-bottom: 8px
 				&.blue_back
 					text-align: center
-					background: #278dc1
+					background: #e84735
 					color: #fff
 					padding: 4px 9px
 					font-size: 20px
@@ -1646,10 +1726,9 @@ footer
 				&.blue_font
 					text-align: center
 					text-transform: uppercase
-					color: #57bcef
+					color: #ffa500
 					font-weight: 600
-					font-size: 14px
-					letter-spacing: 2.3px
+					font-size: 16px					
 				&.grey
 					margin: 6px 0
 					color: #8698a5
@@ -1719,7 +1798,7 @@ footer
 
 .check-square > li::before
 	content: "\f058"
-	font-size: 24px
+	font-size: 16px
 	position: absolute
 	font-family: fontAwesome
 	left: 0
@@ -1753,6 +1832,11 @@ footer
 			position: absolute
 			transition: all 0.5s ease 0s
 			width: 25%
+
+section.action
+	padding-bottom: 40px
+
+
 
 section.republic
 	padding: 10px 0			
@@ -1913,12 +1997,125 @@ section.republic
 	z-index: 110
 .modal_body
 	ol
-		columns: 4 auto
-		padding: 0
+		columns: 3 auto
+
 		li
 			padding: 2px 10px 2px 2px
 #vk_groups,#vk_groups iframe
 	width: 100% !important
 	text-align: center !important
+.banner
+	position: relative
+	span
+		position: absolute
+		color: #fff
+		background: #e84735
+		right: 16px
+		bottom: 6px
+		padding: 2px 4px
+
+.mobi
+	padding: 20px
+	margin-bottom: 30px
+	position: relative
+	background: #e84735
+	color: #fff
+	position: relative
+
+	h3
+		padding-left: 10px
+		margin-top: 5px
+		font-weight: 800
+		font-size: 28px
+	p
+		padding-left: 10px
+.mobi-btn
+	cursor: pointer
+	padding: 8px 16px 8px 16px
+	border: 0
+	border-radius: 20px
+	background: #fff
+	color: #e84735
+	outline: none
+	transition: .1s
+	font-weight: 500
+	text-align: center
+	&:hover
+		box-shadow: 0 0 10px #fff
+.btn-m
+	text-align: center
+	width: 100%
+	margin-top: 40px
+	margin-bottom: 40px
+
+.options-mobi
+	width: 100%
+	color: #e84735
+	padding: 5px 0
+	background: #fff
+	margin-bottom: 1rem
+	border-radius: 2rem .25rem 2rem .25rem
+	opacity: .95
+	margin-top: 26px
+	ul
+		padding-left: 0px
+		display: inline-block
+		margin: 0
+		width: 100%
+		li
+			float: left
+			display: block
+			padding-left: 12px
+			font-size: 28px
+			list-style: none
+			position: relative
+			text-align: center
+			font-weight: 1000
+		span
+			font-size: 11px
+			display: block
+			font-weight: 500
+			line-height: 1rem
+.special
+	position: relative			
+.procent
+	font-size: 42px
+	position: absolute
+	bottom: 36px
+	right: 15px
+	font-weight: 1000
+	background-color: #fff
+	color: #e84735
+	padding: 6px 4px
+	border-radius: 12px
+	&::after
+		position: absolute
+		right: 12px
+		content: ""
+		border: 10px solid transparent
+		border-top: 0px solid transparent
+		display: block
+		width: 0
+		height: 0
+		border-right: 30px solid #fff
+		border-bottom: 30px solid transparent
+		border-left: 0px solid transparent
+
+.special-mobi
+	background-color: #fff
+	color: #e84735
+	padding: 6px
+	border-radius: 16px
+	font-weight: bold
+	p
+		margin-bottom: 0
+.brr
+	border-right: 5px solid #fff
+
+.mobi-h2
+	h2
+		font-size: 28px
+		text-align: right
+		margin-top: 5px
 
 @import "media" // Всегда в конце
