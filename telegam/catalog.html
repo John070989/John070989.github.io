@@ -1,256 +1,955 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+<!DOCTYPE html>
+<html>
 
 <head>
+
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Document</title>
+	<!-- <base href="/"> -->
 
-	<link rel="stylesheet" href="css/main.css">
+	<title>TELEGAM INFO — биржа телеграм-каналов</title>
+	<meta name="description" content="Startup HTML template OptimizedHTML 5">
 
-	<script src="js/app.js" defer=""></script>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.svg">
+	<meta property="og:image" content="images/dist/preview.jpg">
+
+	<link rel="stylesheet" href="css/app.min.css">
+	<script src="js/app.min.js" defer></script>
+
+
 </head>
 
 <body>
+
 
 	<div data-server-rendered="true" id="__nuxt">
 
 		<div class="main-container">
 			<nav class="sidenav">
-				<div class="sidenav__header"><a rel="nofollow" class="sidenav__dropdown"></a> <a href="index.html" class="sidenav__logo"><img src="img/logo.jpg" alt=""></a>
-					<div class="sidenav__header-item"><a class="sidenav__user-login sidenav__user_mobile">
-							Оставить <br> заявку
-						</a></div>
+				<div class="sidenav__header">
+					<a rel="nofollow" class="sidenav__dropdown"></a>
+					<a href="index.html" class="sidenav__logo"><img src="images/src/logo.jpg" alt=""></a>
+
+					<div class="sidenav__header-item">
+						<a href="#callback" class="sidenav__user-login sidenav__user_mobile">
+							Оставить заявку
+						</a>
+					</div>
 				</div>
-				<div class="navbar-links">
 
-					<ul>
-						<li class="sidenav__item"><a href="index.html"><span class="icon icon-system">О
-									системе</span></a></li>
-						<li class="sidenav__item sidenav__item_active"><a href="catalog.html"><span class="icon icon-dash">Каталог</span></a>
-						</li>
+<div class="navbar-links">
 
-						<li class="sidenav__item"><a href="faq/" target="_blank" rel="nofollow"><span class="icon icon-faq">FAQ</span></a></li>
+	<ul>
+		<li class="sidenav__item"><a href="index.html"><span class="icon icon-system">О
+					системе</span></a></li>
+		<li class="sidenav__item sidenav__item_active"><a href="catalog.html"><span
+					class="icon icon-dash">Каталог</span></a>
+		</li>
 
-					</ul>
+		<li class="sidenav__item"><a href="faq.html" rel="nofollow"><span class="icon icon-faq">FAQ</span></a></li>
 
-					<a class="sidenav__user-login sidenav__user_desktop">
-						Оставить <br> заявку
-					</a>
+	</ul>
+
+	<a class="sidenav__user-login sidenav__user_desktop">
+		Оставить <br> заявку
+	</a>
+</div>
+</nav> <!---->
+<main class="main">
+	<div class="container">
+		<div class="loader-container" style="display:none"><span class="loader__wrapper"></span> <span
+				class="loader"></span></div>
+		<div class="filter-container">
+			<div class="filter-group">
+				<div class="filter-action show">
+					<div class="filter-toggle">
+						<div class="filter__title">Фильтр</div> <span class="filter__icon"></span>
+					</div>
 				</div>
-			</nav> <!---->
-			<main class="main">
-				<div class="container">
-					<div class="loader-container" style="display: none"><span class="loader__wrapper"></span> <span class="loader"></span></div>
-					<div class="filter-container">
-						<div class="filter-group">
-							<div class="filter-action show">
-								<div class="filter-toggle">
-									<div class="filter__title">Фильтр</div> <span class="filter__icon"></span>
+				<div class="filter-action-mobile hide">
+					<div class="filter-toggle">
+						<div class="filter__title">Фильтр</div> <span class="filter__icon"></span>
+					</div>
+				</div>
+				<div class="filter">
+					<div class="filter__search"><input name="search" placeholder="Поиск..." class="input input__search">
+					</div>
+
+					<div class="mt-24 filter__item">
+						<div class="filter__item-list bt">
+							<div class="list__title">Диапазоны</div>
+							<div class="list__button show"></div>
+						</div>
+						<div class="filter__item-list_content">
+							<div>
+								<div class="range-header">
+									<div class="range-header__title">Цена, руб.</div>
+								</div>
+								<div class="range-values"><input id="min-value-price"> <input id="max-value-price">
+								</div>
+								<div class="range">
+									<div class="slider-track track-price"></div> <input type="range"
+										id="min-range-price" min="" step="0" max="0"> <input type="range"
+										id="max-range-price" min="0" step="0" max="">
 								</div>
 							</div>
-							<div class="filter-action-mobile hide">
-								<div class="filter-toggle">
-									<div class="filter__title">Фильтр</div> <span class="filter__icon"></span>
+							<div>
+								<div class="range-header">
+									<div class="range-header__title">ER, %</div>
+								</div>
+								<div class="range-values"><input id="min-value-er"> <input id="max-value-er"></div>
+								<div class="range">
+									<div class="slider-track track-er"></div> <input type="range" id="min-range-er"
+										min="0" step="0" max="100" value="0"> <input type="range" id="max-range-er"
+										min="0" step="0" max="100" value="100">
 								</div>
 							</div>
-							<div class="filter">
-								<div class="filter__search"><input name="search" placeholder="Поиск..." class="input input__search">
+							<div>
+								<div class="range-header">
+									<div class="range-header__title">Подписчиков</div>
 								</div>
-
-								<div class="mt-24 filter__item">
-									<div class="filter__item-list bt">
-										<div class="list__title">Диапазоны</div>
-										<div class="list__button show"></div>
-									</div>
-									<div class="filter__item-list_content">
-										<div>
-											<div class="range-header">
-												<div class="range-header__title">Цена, руб.</div>
-											</div>
-											<div class="range-values"><input id="min-value-price"> <input id="max-value-price"></div>
-											<div class="range">
-												<div class="slider-track track-price"></div> <input type="range" id="min-range-price" min="" step="0" max="0"> <input type="range" id="max-range-price" min="0" step="0" max="">
-											</div>
-										</div>
-										<div>
-											<div class="range-header">
-												<div class="range-header__title">ER, %</div>
-											</div>
-											<div class="range-values"><input id="min-value-er"> <input id="max-value-er"></div>
-											<div class="range">
-												<div class="slider-track track-er"></div> <input type="range" id="min-range-er" min="0" step="0" max="100" value="0"> <input type="range" id="max-range-er" min="0" step="0" max="100" value="100">
-											</div>
-										</div>
-										<div>
-											<div class="range-header">
-												<div class="range-header__title">Подписчиков</div>
-											</div>
-											<div class="range-values"><input id="min-value-subscribers"> <input id="max-value-subscribers">
-											</div>
-											<div class="range">
-												<div class="slider-track track-subscribers"></div> <input type="range" id="min-range-subscribers" min="" step="0" max="0">
-												<input type="range" id="max-range-subscribers" min="0" step="0" max="">
-											</div>
-										</div>
-									</div>
+								<div class="range-values"><input id="min-value-subscribers"> <input
+										id="max-value-subscribers">
 								</div>
-								<div class="mt-24 filter__item filter-desktop"><button class="button">Применить</button>
+								<div class="range">
+									<div class="slider-track track-subscribers"></div> <input type="range"
+										id="min-range-subscribers" min="" step="0" max="0">
+									<input type="range" id="max-range-subscribers" min="0" step="0" max="">
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="category-container" style="">
-						<div class="category-items">
-							<div class="divTable table">
-								<div class="divTableHeading --gray">
-									<div class="divTableRow">
-										<div data-sort="name" data-type="DESC" class="divTableHead">Название</div>
-										<div data-sort="subscribers" data-type="DESC" class="divTableHead">
-											Подписчики</div>
-										<div data-sort="views" data-type="DESC" class="divTableHead">Просмотры</div>
-										<div data-sort="er" data-type="DESC" class="divTableHead">ER</div>
-										<div data-sort="cpv" data-type="DESC" class="divTableHead">CPV</div>
-										<div data-sort="bsi" data-type="DESC" class="divTableHead">BSI</div>
-										<div data-sort="format" class="divTableHead">В топе/в ленте</div>
-										<div data-sort="price" data-type="DESC" class="divTableHead">Цена</div>
-										<div class="divTableHead"></div>
+					<div class="mt-24 filter__item filter-desktop"><button class="button">Применить</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="category-container" style="">
+			<div class="category-items">
+				<div class="divTable table">
+					<div class="divTableHeading --gray">
+						<div class="divTableRow">
+							<div data-sort="name" data-type="DESC" class="divTableHead">Название</div>
+							<div data-sort="subscribers" data-type="DESC" class="divTableHead">
+								Подписчики</div>
+							<div data-sort="views" data-type="DESC" class="divTableHead">Просмотры</div>
+							<div data-sort="er" data-type="DESC" class="divTableHead">ER</div>
+							<div data-sort="cpv" data-type="DESC" class="divTableHead">CPV</div>
+							<div data-sort="bsi" data-type="DESC" class="divTableHead">BSI</div>
+							<div data-sort="format" class="divTableHead">В топе/в ленте</div>
+							<div data-sort="price" data-type="DESC" class="divTableHead">Цена</div>
+							<div class="divTableHead"></div>
+						</div>
+					</div>
+					<div class="divTableBody">
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">MAG Architecture</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
 									</div>
 								</div>
-								<div class="divTableBody">
-									<div class="divTableRow">
-										<div class="divTableCell">
-											<div class="channel__info">
-												<div class="category__about">
-													<div class="avatar"><img src="https://api.brandkarma.ru/storage/channels/twodrotsshow.jpg" alt=""></div>
-												</div>
-												<div class="category__info"><a href="/catalog/sport/twodrotsshow" class="category__text">2drots</a>
-													<div class="category__description">Канал об интерьере и
-														обустройстве дома</div>
-												</div>
-											</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">166&nbsp;503</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">82&nbsp;056</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">49.41%</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">1.29 ₽</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item"><svg width="35" height="35" viewbox="0 0 35 35">
-													<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8" stroke-dasharray="94 100" class="circle_round">
-														<animate attributename="stroke-dasharray" from="0" to="94" dur="1s"></animate>
-													</circle> <text x="50%" y="23" text-anchor="middle">94</text>
-												</svg></div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">
-												<div class="category__format"><span class="dropdown"><button>без
-															топа/без удаления</button>
-														<label><input type="checkbox">
-															<ul style="display: none">
-																<li onclick="event.preventDefault();" class="disabled" style="display: none"></li>
-																<li data-value="0" class="selected">
-																	без топа/без удаления
-																</li>
-															</ul>
-														</label></span></div>
-											</div>
-										</div>
-										<div class="divTableCell noWrap">
-											<div class="channel__price">
-												<div class="category__price">
-													<div class="price text_price"><span class="amount">106&nbsp;000</span> <span class="rub">₽</span></div>
-												</div>
-											</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">
-												<div class="action">
-													<!-- <div class="action-buy"></div> -->
-												</div>
-											</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">6&nbsp;342</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">2&nbsp;359</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">37.16%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">5.51 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="97 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="97" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">97</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>6/месяц</button>
+											<label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														6/месяц
+													</li>
+													<li data-value="1" class="">
+														6/тестовый
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">13&nbsp;000</span> <span
+												class="rub">₽</span>
 										</div>
 									</div>
-									<div class="divTableRow">
-										<div class="divTableCell">
-											<div class="channel__info">
-												<div class="category__about">
-													<div class="avatar"><img src="https://api.brandkarma.ru/storage/channels/savsails.jpg" alt=""></div>
-												</div>
-												<div class="category__info"><a href="/catalog/sport/savsails" class="category__text">Про яхты
-														с Михаилом Савельевым</a>
-													<div class="category__description">Все о яхтах</div>
-												</div>
-											</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">3&nbsp;392</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">875</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">25.82%</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">18.34 ₽</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item"><svg width="35" height="35" viewbox="0 0 35 35">
-													<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8" stroke-dasharray="97 100" class="circle_round">
-														<animate attributename="stroke-dasharray" from="0" to="97" dur="1s"></animate>
-													</circle> <text x="50%" y="23" text-anchor="middle">97</text>
-												</svg></div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">
-												<div class="category__format"><span class="dropdown"><button>1/без
-															удаления</button>
-														<label><input type="checkbox">
-															<ul style="display: none">
-																<li onclick="event.preventDefault();" class="disabled" style="display: none"></li>
-																<li data-value="0" class="selected">
-																	1/без удаления
-																</li>
-															</ul>
-														</label></span></div>
-											</div>
-										</div>
-										<div class="divTableCell noWrap">
-											<div class="channel__price">
-												<div class="category__price">
-													<div class="price text_price"><span class="amount">16&nbsp;050</span> <span class="rub">₽</span>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="divTableCell">
-											<div class="statistic__item">
-												<div class="action">
-													<!-- <div class="action-buy"></div> -->
-												</div>
-											</div>
-										</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
 									</div>
 								</div>
 							</div>
 						</div>
 
-					</div>
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Каталог Алвара
+											Аалто</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">4&nbsp;669</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">1&nbsp;446</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">31.04%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">12.45 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="97 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="97" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">97</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">18&nbsp;000</span> <span
+												class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
 
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="@" class="category__text">Ромашковый сбор</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">10&nbsp;820</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">1&nbsp;745</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">16.17%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">1.21 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="96 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="96" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">96</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>3/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														3/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">2&nbsp;120</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">fragments</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">9&nbsp;521</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">2&nbsp;452</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">25.81%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">2.45 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="97 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="97" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">97</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">6&nbsp;000</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Вот это дом</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">28&nbsp;451</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">1&nbsp;146</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">4.02%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">6.72 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="96 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="96" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">96</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>3/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														3/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">7&nbsp;700</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Плотник на связи |
+											Все о ремонте</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">31&nbsp;600</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">21&nbsp;325</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">67.47%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">0.29 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="100 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="100" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">100</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">6&nbsp;200</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="/catalog/dizain-intererov/disgn_peace"
+											class="category__text">Мир дизайна | Дизайн | Графика</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">26&nbsp;523</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">19&nbsp;097</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">71.89%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">0.3 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="100 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="100" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">100</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">5&nbsp;810</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Ремонт Дома | Идеи |
+											Лайвхаки</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">26&nbsp;021</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">20&nbsp;218</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">77.48%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">0.3 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="100 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="100" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">100</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">6&nbsp;070</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Дизайн | Ремонт |
+											Идеи</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">41&nbsp;522</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">21&nbsp;523</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">51.82%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">0.31 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="98 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="98" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">98</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">6&nbsp;070</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Секреты Дизайна и
+											Ремонта</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">41&nbsp;094</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">20&nbsp;588</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">50.09%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">0.28 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="98 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="98" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">98</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">5&nbsp;810</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Для Начинающих •
+											Дизайн</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">31&nbsp;564</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">20&nbsp;459</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">64.81%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">0.31 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="100 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="100" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">100</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">6&nbsp;330</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="divTableRow">
+							<div class="divTableCell">
+								<div class="channel__info">
+									<div class="category__about">
+										<div class="avatar"><img src="images/src/telegram.svg" alt=""></div>
+									</div>
+									<div class="category__info"><a href="#" class="category__text">Для Начинающих •
+											Ремонт</a>
+										<div class="category__description">Канал про дизайн интерьера,
+											ремонт, архитектуру</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">31&nbsp;579</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">20&nbsp;254</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">64.13%</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">0.31 ₽</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item"><svg width="35" height="35" viewBox="0 0 35 35">
+										<circle cx="17" cy="17" r="16" fill="#fff" stroke-width="2" stroke="#54aff8"
+											stroke-dasharray="100 100" class="circle_round">
+											<animate attributeName="stroke-dasharray" from="0" to="100" dur="1s">
+											</animate>
+										</circle> <text x="50%" y="23" text-anchor="middle">100</text>
+									</svg></div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="category__format"><span class="dropdown"><button>1/без
+												удаления</button> <label><input type="checkbox">
+												<ul style="display: none;">
+													<li onclick="event.preventDefault();" class="disabled"
+														style="display: none;"></li>
+													<li data-value="0" class="selected">
+														1/без удаления
+													</li>
+												</ul>
+											</label></span></div>
+								</div>
+							</div>
+							<div class="divTableCell noWrap">
+								<div class="channel__price">
+									<div class="category__price">
+										<div class="price text_price"><span class="amount">6&nbsp;200</span>
+											<span class="rub">₽</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divTableCell">
+								<div class="statistic__item">
+									<div class="action">
+										<div class=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
-			</main>
+			</div>
 
 		</div>
 
 	</div>
+
+</main>
+
+</div>
+
+</div>
 
 
 </body>
