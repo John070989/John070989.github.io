@@ -40,28 +40,35 @@
 					</div>
 				</div>
 				<div class="popup-hide">
-					<form id="callback" class="popup-form">
+
+					<form enctype="multipart/form-data" method="post" id="callback" class="popup-form" onsubmit="submitForm(event)" action="send.php">
+						
 						<h3>Оставить заявку</h3>
 
 						<div>
 							<label>
-								<input required="" placeholder="Имя" name="Имя" type="text">
+
+								<input required="" placeholder="Имя" name="name" type="text">
+
 							</label>
 						</div>
 						<div>
 							<label>
-								<input required="" type="tel" placeholder="Ваш номер телефона"
-									class="phone_mask2" name="phone" />
+
+								<input required="" type="text" placeholder="Ваш номер телефона" class="phone_mask2" name="phone" />
+
 							</label>
 						</div>
 
 						<div>
 
 							<div class="text-center">
-								<button class="button button-small">Отправить</button>
+
+								<input value="Отправить" type="submit" class="button button-small">
+								
 							</div>
 						</div>
-						<input name="Тип" class="formname" value="Форма вопрос" type="hidden">
+						
 					</form>
 				</div>
 
