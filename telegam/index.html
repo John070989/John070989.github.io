@@ -8,7 +8,7 @@
 	<!-- <base href="/"> -->
 
 	<title>TELEGAM INFO — биржа телеграм-каналов</title>
-	<meta name="description" content="Startup HTML template OptimizedHTML 5">
+	<meta name="description" content="TELEGAM INFO — биржа телеграм-каналов">
 
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -18,6 +18,50 @@
 
 	<link rel="stylesheet" href="css/app.min.css">
 	<script src="js/app.min.js" defer></script>
+
+	<script>
+		async function submitForm(event) {
+		  event.preventDefault(); // отключаем перезагрузку/перенаправление страницы
+		  try {
+			document.querySelector(".btn-send").value = "Идёт отправка";
+			document.querySelector(".btn-send").disabled = true;
+
+			document.querySelector(".btn-send-form").value = "Идёт отправка";
+			document.querySelector(".btn-send-form").disabled = true;
+			  // Формируем запрос
+			const response = await fetch(event.target.action, {
+				method: 'POST',
+				body: new FormData(event.target)
+			});
+			// проверяем, что ответ есть
+			if (!response.ok) throw (`Ошибка при обращении к серверу: ${response.status}`);
+			// проверяем, что ответ действительно JSON
+			const contentType = response.headers.get('content-type');
+			if (!contentType || !contentType.includes('application/json')) {
+			  throw ('Ошибка обработки. Ответ не JSON');
+			}
+			// обрабатываем запрос
+			const json = await response.json();
+			if (json.result === "success") {
+			document.querySelector(".btn-send").value = "Успешно отправлено";
+			document.querySelector(".btn-send-form").value = "Успешно отправлено";
+				// в случае успеха
+				//alert(json.info);
+			} else { 
+				// в случае ошибки
+			document.querySelector(".btn-send").value = "Отправить";
+			document.querySelector(".btn-send").disabled = false;
+
+			document.querySelector(".btn-send-form").value = "Отправить";
+			document.querySelector(".btn-send-form").disabled = false;
+				console.log(json);
+				throw (json.info);
+			}
+		  } catch (error) { // обработка ошибки
+			alert(error);
+		  }
+		}
+		</script>
 
 
 </head>
@@ -59,12 +103,17 @@
 
 							</label>
 						</div>
+						<div>
+							<label>
+								<textarea placeholder="Ваш вопрос" rows="3" type="text" name="textarea" ></textarea>
+							</label>
+						</div>
 
 						<div>
 
 							<div class="text-center">
 
-								<input value="Отправить" type="submit" class="button button-small">
+								<input value="Отправить" type="submit" class="button button-small btn-send">
 								
 							</div>
 						</div>
@@ -196,13 +245,13 @@
 
 								<div>
 									<label>
-										<textarea required="" placeholder="Ваш вопрос" rows="3" name="textarea" ></textarea>
+										<textarea required="" placeholder="Ваш вопрос" rows="3" type="text" name="textarea" ></textarea>
 									</label>
 								</div>
 								<div>
 
 									<div class="text-center">
-										<input value="Отправить" type="submit" class="button button-small">
+										<input value="Отправить" type="submit" class="button button-small btn-send-form">
 									</div>
 								</div>
 
@@ -217,11 +266,11 @@
 
 		<footer>
     <div class="wrapper">
-        <div class="footer-container"><a href="" class="footer-logo"><img src="images/dist/logo.jpg" alt=""></a>
+        <div class="footer-container"><a href="index.html" class="footer-logo"><img src="images/dist/logo.jpg" alt=""></a>
             <div class="footer-copyright">
                 <div>© 2025 telegam info</div>
             </div>
-            <div class="footer-info-container"><a href="https://t.me/"><img src="images/dist/telegram.svg" alt=""></a>
+            <div class="footer-info-container"><a href="https://t.me/telegaminfo"><img src="images/dist/telegram.svg" alt=""></a>
                 <div class="footer-info">
                     <div class="footer-info__opening_hours">Пн-Пт | с 07:00 до 20:00</div>
                 </div>
@@ -235,7 +284,6 @@
 </div>
 
 </div>
-
 
 </body>
 
