@@ -42,7 +42,7 @@
 				<div class="popup-hide">
 
 					<form enctype="multipart/form-data" method="post" id="callback" class="popup-form" onsubmit="submitForm(event)" action="send.php">
-						
+
 						<h3>Оставить заявку</h3>
 
 						<div>
@@ -55,7 +55,7 @@
 						<div>
 							<label>
 
-								<input required="" type="text" placeholder="Ваш номер телефона" class="phone_mask2" name="phone" />
+								<input required="" placeholder="Ваш номер телефона" class="phone_mask2" type="text" name="phone" />
 
 							</label>
 						</div>
@@ -181,29 +181,28 @@
 
 						<div class="block_2">
 
-							<form action="#" method="post" style="text-align: center;">
+							<form method="post" id="form" style="text-align: center;" enctype="multipart/form-data" onsubmit="submitForm(event)" action="send.php">
 
 								<div>
 									<label>
-										<input required="" placeholder="Ваше Имя" type="text">
+										<input required="" placeholder="Ваше Имя" type="text" name="name">
 									</label>
 								</div>
 								<div>
 									<label>
-										<input required="" type="tel" placeholder="Ваш номер телефона"
-											class="phone_mask2" name="phone" />
+										<input required="" placeholder="Ваш номер телефона" class="phone_mask2" type="text" name="phone" />
 									</label>
 								</div>
 
 								<div>
 									<label>
-										<textarea required="" placeholder="Ваш вопрос" rows="3"></textarea>
+										<textarea required="" placeholder="Ваш вопрос" rows="3" name="textarea" ></textarea>
 									</label>
 								</div>
 								<div>
 
 									<div class="text-center">
-										<button class="button button-small">Отправить</button>
+										<input value="Отправить" type="submit" class="button button-small">
 									</div>
 								</div>
 

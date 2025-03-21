@@ -10,7 +10,8 @@ if (!error_get_last()) {
     // Переменные, которые отправляет пользователь
     $name = $_POST['name'] ;
    // $email = $_POST['email'];
-    $text = $_POST['text'];
+    $textarea = $_POST['textarea'];
+    $phone = $_POST['phone'];
     //$file = $_FILES['myfile'];
     
     
@@ -19,7 +20,8 @@ if (!error_get_last()) {
     $body = "
     <h2>Новое письмо</h2>
     <b>Имя:</b> $name<br>
-    <b>Сообщение:</b><br>$text
+    <b>Телефон:</b> $phone<br><br>
+    <b>Сообщение:</b>$textarea<br>
     ";
     
     // Настройки PHPMailer
